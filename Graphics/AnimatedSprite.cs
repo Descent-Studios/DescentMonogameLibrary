@@ -38,7 +38,10 @@ public class AnimatedSprite : Sprite
 
             if (_currentFrame >= _animation.Frames.Count)
             {
-                _currentFrame = 0;
+                if (_animation.Looping)
+                    _currentFrame = 0;
+                else
+                    _currentFrame = _animation.Frames.Count - 1;
             }
 
             Region = _animation.Frames[_currentFrame];

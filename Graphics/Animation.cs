@@ -9,6 +9,8 @@ public class Animation
 
     public TimeSpan Delay {get;set;}
 
+    public bool Looping {get; set;} = true;
+
     public Animation()
     {
         Frames = new List<TextureRegion>();

@@ -135,6 +135,7 @@ public class TextureAtlas
                         string name = animationElement.Attribute("name")?.Value;
                         float delayInMilliseconds = float.Parse(animationElement.Attribute("delay")?.Value ?? "0");
                         TimeSpan delay = TimeSpan.FromMilliseconds(delayInMilliseconds);
+                        bool looping = bool.Parse(animationElement.Attribute("looping")?.Value ?? "true");
 
                         List<TextureRegion> frames = new List<TextureRegion>();
 
@@ -151,6 +152,7 @@ public class TextureAtlas
                         }
 
                         Animation animation = new Animation(frames, delay);
+                        animation.Looping = looping;
                         atlas.AddAnimation(name, animation);
                     }
                 }
